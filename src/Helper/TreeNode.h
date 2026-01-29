@@ -47,7 +47,7 @@ NodeType *vec1d2list(const std::vector<T> &vec) {
     if (vec[0] == "null")
       return nullptr;
   }
-  NodeType head;
+  NodeType head(0);
   auto pnode = &head;
   for (auto val : vec) {
     auto node = new NodeType(val);
