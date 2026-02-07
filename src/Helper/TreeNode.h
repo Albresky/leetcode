@@ -39,6 +39,23 @@ NodeType *vec2tree(const std::vector<T> &vec) {
   return root;
 }
 
+template <class NodeType, typename TV = int> void printTreeH(NodeType *root) {
+  if (!root)
+    return;
+
+  std::queue<NodeType *> q;
+  q.push(root);
+  while (!q.empty()) {
+    auto node = q.front();
+    q.pop();
+    if (node->left)
+      q.push(node->left);
+    if (node->right)
+      q.push(node->right);
+    std::cout << node->val << ", ";
+  }
+}
+
 template <class NodeType, typename T = std::string, typename TV = int>
 NodeType *vec1d2list(const std::vector<T> &vec) {
   if (vec.empty())
